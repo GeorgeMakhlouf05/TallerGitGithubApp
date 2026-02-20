@@ -107,19 +107,65 @@ fun TarjetaPerfil(modifier: Modifier = Modifier) {
 
             // Edad · Correo · Ciudad
             Column(modifier = Modifier.fillMaxWidth()) {
-                Text(text = "EDAD", fontSize = 10.sp, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+                Text(
+                    text = "EDAD",
+                    fontSize = 10.sp,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.Bold
+                )
                 Text(text = "— años", fontSize = 14.sp)
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "CORREO", fontSize = 10.sp, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+                Text(
+                    text = "CORREO",
+                    fontSize = 10.sp,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.Bold
+                )
                 Text(text = "tucorreo@ejemplo.com", fontSize = 14.sp)
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "CIUDAD", fontSize = 10.sp, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+                Text(
+                    text = "CIUDAD",
+                    fontSize = 10.sp,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.Bold
+                )
                 Text(text = "Tu ciudad", fontSize = 14.sp)
             }
 
             Divider(modifier = Modifier.padding(vertical = 16.dp))
+            Text(
+                text = "SOBRE MI MATERIA FAVORITA",
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Aquí irá tu descripción de intereses académicos y profesionales...",
+                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // Botón inferior
+            Button(
+                onClick = {},
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = "Contactar conmigo")
+            }
         }
     }
+
+}
+
+@Composable
+fun TarjetaPerfilPreview() {
+    TallerGitGithubAppTheme {
+        TarjetaPerfil()
+    }
+
 }
 
 
