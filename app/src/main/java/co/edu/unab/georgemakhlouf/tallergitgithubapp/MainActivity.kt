@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ProfileScreen() {
-    var message by remember { mutableStateOf("Hola, soy tu nombre") }
+    var message by remember { mutableStateOf("Hola, George Makhlouf") }
 
     Column(
         modifier = Modifier
@@ -75,7 +75,7 @@ fun ProfileScreen() {
 
         // Nombre
         Text(
-            text = "TU NOMBRE COMPLETO",
+            text = "George Sebastian Makhlouf Ruiz",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = Color(0xFF2196F3)
@@ -85,7 +85,7 @@ fun ProfileScreen() {
 
         // Código de estudiante
         Text(
-            text = "Código: U12345678",
+            text = "Código: U00188462",
             fontSize = 18.sp,
             fontWeight = FontWeight.Medium
         )
@@ -94,7 +94,7 @@ fun ProfileScreen() {
 
         // Correo
         Text(
-            text = "tu.correo@unab.edu.co",
+            text = "gmakhlouf@unab.edu.co",
             fontSize = 16.sp
         )
 
