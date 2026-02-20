@@ -89,6 +89,35 @@ fun TarjetaPerfil(modifier: Modifier = Modifier) {
                     .clip(CircleShape),
                 contentScale = androidx.compose.ui.layout.ContentScale.Crop
             )
+            // Nombre en negrita
+            Text(
+                text = "Tu Nombre",
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            // Rol / cargo
+            Text(
+                text = "Tu Rol",
+                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.primary
+            )
+
+            Divider(modifier = Modifier.padding(vertical = 16.dp))
+
+            // Edad · Correo · Ciudad
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(text = "EDAD", fontSize = 10.sp, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+                Text(text = "— años", fontSize = 14.sp)
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(text = "CORREO", fontSize = 10.sp, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+                Text(text = "tucorreo@ejemplo.com", fontSize = 14.sp)
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(text = "CIUDAD", fontSize = 10.sp, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+                Text(text = "Tu ciudad", fontSize = 14.sp)
+            }
+
+            Divider(modifier = Modifier.padding(vertical = 16.dp))
         }
     }
 }
