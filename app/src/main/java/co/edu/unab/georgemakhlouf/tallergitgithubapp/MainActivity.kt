@@ -5,15 +5,22 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -30,6 +37,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,80 +46,48 @@ import co.edu.unab.georgemakhlouf.tallergitgithubapp.ui.theme.TallerGitGithubApp
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
-            TallerGitGithubAppTheme {
+            MaterialTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ProfileScreen()
+                    ProfileCard()
                 }
             }
         }
     }
 }
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun ProfileScreen() {
-    var message by remember { mutableStateOf("Hola, George Makhlouf") }
+fun ProfileCard() {
 
-    Column(
+    Card(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .fillMaxWidth()
+            .padding(16.dp),
+        shape = MaterialTheme.shapes.large,
+        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
-
-        Image(
-            painter = painterResource(id = R.drawable.image_example),
-            contentDescription = "Foto de perfil",
+        Column(
             modifier = Modifier
-                .size(120.dp)
-                .clip(CircleShape),
-            contentScale = ContentScale.Crop
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Text(
-            text = "George Sebastian Makhlouf Ruiz",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color(0xFF2196F3)
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Text(
-            text = "Código: U00188462",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Medium
-        )
-
-        Spacer(modifier = Modifier.height(4.dp))
-
-        Text(
-            text = "gmakhlouf@unab.edu.co",
-            fontSize = 16.sp
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Button(
-            onClick = {
-                message = "¡Bienvenido a Git y GitHub!"
-            }
+                .padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Welcome")
-        }
 
-        Spacer(modifier = Modifier.height(16.dp))
+            // Imagen circular
+            val painter = painterResource(id = R.drawable.image_example)
+            Image(
+                painter = painter, contentDescription = null,
+            )
 
-        Text(
-            text = message,
-            fontSize = 18.sp,
-            color = Color(0xFF4CAF50)
-        )
-    }
+                        Spacer (modifier = Modifier.height(16.dp))
+
+                        // Nombre en negrita
+                        Text (
+                        text = "Tu Nombre", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+
+
 }
