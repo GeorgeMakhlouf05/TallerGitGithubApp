@@ -48,12 +48,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MaterialTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    ProfileCard()
+            TallerGitGithubAppTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    TarjetaPerfil(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -62,85 +59,38 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun ProfileCard() {
-
+fun TarjetaPerfil(modifier: Modifier = Modifier) {
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),
-        shape = MaterialTheme.shapes.large,
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(
             modifier = Modifier
+                .fillMaxWidth()
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            // Imagen circular (placeholder por ahora)
+            Surface(
+                modifier = Modifier
+                    .size(120.dp)
+                    .clip(CircleShape),
+                color = MaterialTheme.colorScheme.secondaryContainer
+            ) {}
 
-            // Imagen circular
-            val painter = painterResource(id = R.drawable.image_example)
+            Spacer(modifier = Modifier.height(16.dp))
             Image(
-                painter = painter, contentDescription = null,
+                painter = painterResource(id = R.drawable.image_example),
+                contentDescription = "Foto de perfil",
+                modifier = Modifier
+                    .size(120.dp)
+                    .clip(CircleShape),
+                contentScale = androidx.compose.ui.layout.ContentScale.Crop
             )
-
-                        Spacer (modifier = Modifier.height(16.dp))
-
-                        // Nombre en negrita
-                        Text (
-                        text = "Tu Nombre", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color.Black)
-            // Rol
-            Text(
-                text = "Tu Rol",
-                fontSize = 16.sp,
-                color = Color.Black
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Divider()
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Edad
-            Text(text = "EDAD", fontWeight = FontWeight.Bold, fontSize = 12.sp)
-            Text(text = "22 años")
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Correo
-            Text(text = "CORREO", fontWeight = FontWeight.Bold, fontSize = 12.sp)
-            Text(text = "email= MaterialTheme.colorScheme.primary")
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Ciudad
-            Text(text = "CIUDAD", fontWeight = FontWeight.Bold, fontSize = 12.sp)
-            Text(text = "Bucaramanga")
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Sección descriptiva
-            Text(
-                text = "SOBRE MI MATERIA FAVORITA",
-                fontWeight = FontWeight.Bold,
-                fontSize = 12.sp
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text(
-                text = "Me gusta mucho esta materia de desarrolos moviles porque siento que puedo cosas y ademas me apasiona la ciberseguridad",
-                textAlign = TextAlign.Center
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-
-
         }
     }
 }
+
+
