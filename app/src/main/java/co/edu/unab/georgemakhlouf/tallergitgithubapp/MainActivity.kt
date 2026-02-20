@@ -88,6 +88,42 @@ fun ProfileCard() {
                         // Nombre en negrita
                         Text (
                         text = "Tu Nombre", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+            // Rol
+            Text(
+                text = "Tu Rol",
+                fontSize = 16.sp,
+                color = Color.Black
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Divider()
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Edad
+            Text(text = "EDAD", fontWeight = FontWeight.Bold, fontSize = 12.sp)
+            Text(text = "22 años")
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Correo
+            Text(text = "CORREO", fontWeight = FontWeight.Bold, fontSize = 12.sp)
+            Text(text = "email= MaterialTheme.colorScheme.primary")
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Ciudad
+            Text(text = "CIUDAD", fontWeight = FontWeight.Bold, fontSize = 12.sp)
+            Text(text = "Bucaramanga")
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
+
+            Spacer(modifier = Modifier.height(16.dp))
 
 
+        }
+    }
 }
