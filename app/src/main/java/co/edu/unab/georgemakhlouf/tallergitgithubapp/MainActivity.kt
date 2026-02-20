@@ -19,8 +19,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,7 +40,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TallerGitGithubAppTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -49,7 +50,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ProfileScreen() {
     var message by remember { mutableStateOf("Hola, George Makhlouf") }
@@ -61,9 +62,9 @@ fun ProfileScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Imagen circular
+
         Image(
-            painter = painterResource(id = R.drawable.),
+            painter = painterResource(id = R.drawable.image_example),
             contentDescription = "Foto de perfil",
             modifier = Modifier
                 .size(120.dp)
@@ -73,7 +74,6 @@ fun ProfileScreen() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Nombre
         Text(
             text = "George Sebastian Makhlouf Ruiz",
             fontSize = 24.sp,
@@ -83,7 +83,6 @@ fun ProfileScreen() {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Código de estudiante
         Text(
             text = "Código: U00188462",
             fontSize = 18.sp,
@@ -92,7 +91,6 @@ fun ProfileScreen() {
 
         Spacer(modifier = Modifier.height(4.dp))
 
-        // Correo
         Text(
             text = "gmakhlouf@unab.edu.co",
             fontSize = 16.sp
@@ -100,18 +98,16 @@ fun ProfileScreen() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Botón interactivo
         Button(
             onClick = {
                 message = "¡Bienvenido a Git y GitHub!"
             }
         ) {
-            Text(text = "Mostrar Mensaje")
+            Text(text = "Welcome")
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Mensaje que cambia al hacer clic
         Text(
             text = message,
             fontSize = 18.sp,
